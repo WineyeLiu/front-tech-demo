@@ -1,0 +1,57 @@
+[
+    {
+        "title-CN": "九尾妖狐",
+        "name-CN": "阿狸",
+        "damegeType": "AP",
+        "position": "Mid",
+        "attachRange": "550"
+    },{
+        "title-CN": "暴走萝莉",
+        "name-CN": "金克丝",
+        "damegeType": "AD",
+        "position": "Adc",
+        "attachRange": "525"
+    },{
+        "title-CN": "惩戒之箭",
+        "name-CN": "韦鲁斯",
+        "damegeType": "AD",
+        "position": "Adc,Mid",
+        "attachRange": "575"
+    },{
+        "title-CN": "探险家",
+        "name-CN": "伊泽瑞尔",
+        "damegeType": "AD",
+        "position": "Adc,Mid,Jungle",
+        "attachRange": "550"
+    },{
+        "title-CN": "披甲龙龟",
+        "name-CN": "拉莫斯",
+        "damegeType": "TANK",
+        "position": "Top,Jungle",
+        "attachRange": "125"
+    },{
+        "title-CN": "正义巨像",
+        "name-CN": "加里奥",
+        "damegeType": "AP",
+        "position": "Mid",
+        "attachRange": "550"
+    },{
+        "title-CN": "酒桶",
+        "name-CN": "古拉加斯",
+        "damegeType": "AP",
+        "position": "Mid",
+        "attachRange": "550"
+    },{
+        "title-CN": "熔岩巨兽",
+        "name-CN": "墨菲特",
+        "damegeType": "AP",
+        "position": "Mid",
+        "attachRange": "550"
+    },{
+        "title-CN": "末日使者",
+        "name-CN": "费德提克",
+        "damegeType": "AP",
+        "position": "Mid",
+        "attachRange": "550"
+    }
+]
