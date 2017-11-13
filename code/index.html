@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- 导入css样式表 -->
+    <link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/datatables/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="res/select2/css/select2.min.css">
+
+    <!-- 导入javascript -->
+    <script src="res/jquery-1.11.1.min.js"></script>
+    <script src="res/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="res/datatables/js/dataTables.bootstrap.min.js"></script> -->
+    <script src="res/datatables/js/jquery.dataTables.js"></script>
+    <script src="res/layer/layer.js"></script>
+    <script src="res/select2/js/select2.min.js"></script>
+    
+    <title>List</title>
+</head>
+<body>
+    <!-- css样式区域  （为了检查方便 直接写内部样式） -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: lightcyan;
+        }
+        .header {
+            height: 50px;
+            /*border: 1px solid red;*/
+            background-color: white;
+            margin-top: 100px;
+            padding: 6px 30px;
+        }
+        .header div {
+            float: left;
+        }
+        .header-left {
+            /*border: 1px dashed greenyellow;*/
+            width: 70%;
+        }
+        .inputArea li {
+            float: left;
+            width: 32%;
+            /*background-color: lightpink;*/
+            list-style-type: none;
+        }
+        .form-control {
+            display: inline-block;
+            width: 70%;
+        }
+        .header-right {
+            /*border: 1px dashed magenta;*/
+            width: 28%;
+        }
+        .btn.btn-default {
+            color: white;
+            background-color: purple;
+        }
+        .tableBody {
+            height: 300px;
+            border: 1px dashed purple;
+            margin-top: 60px;
+        }
+    </style>
+
+    <!-- div 布局区域 （主体部分）-->
+    <div class="container" style="width:90%">
+        <div class="header">
+            <!-- header 左边那几个输入框 -->
+            <div class="header-left">
+                    <ul class="inputArea">
+                        <li>
+                            <label>姓名：</label><input class="form-control" type="text" placeholder="请输入姓名" />
+                        </li>
+                        <li>
+                            <label>身份证号：</label><input class="form-control" type="text" placeholder="请输入身份证号" />
+                        </li>
+                        <li>
+                            <label>手机号：</label><input class="form-control" type="text" placeholder="请输入手机号" />
+                        </li>
+                    </ul>
+            </div>
+
+            <!-- header 右边那几个按钮 -->
+            <div class="header-right">
+                <button type="button" class="btn btn-info">查询</button>
+                <button type="button" class="btn btn-info">重置</button>
+                <button type="button" class="btn btn-default">添加英雄</button>
+                <button type="button" class="btn btn-default">批量导入</button>
+            </div>
+        </div>
+        <div class="tableBody"></div>
+    </div>
+    
+</body>
+</html>
