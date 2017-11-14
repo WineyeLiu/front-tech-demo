@@ -1,6 +1,186 @@
-<div>
-    <lable>英雄名称</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">
-    <lable>英雄名称</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">
-    <lable>英雄名称</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">
-    <lable>英雄名称</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 导入css样式表 -->
+    <link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="res/select2-new/css/select2.min.css">
+
+    <!-- 导入javascript -->
+    <script src="res/jquery-1.11.1.min.js"></script>
+    <script src="res/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="res/datatables/js/dataTables.bootstrap.min.js"></script> -->
+    <script src="res/datatables/js/jquery.dataTables.js"></script>
+    <script src="res/layer/layer.js"></script>
+    <script src="res/select2-new/js/select2.min.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- 添加页面css样式 -->
+    <style>
+        .container {
+            width: 90%;
+        }
+        .addHeroLi {
+            list-style-type: none;
+        }
+        .addHeroLi li {
+            width : 90%;
+            display: block;
+            margin: 25px 20px;
+        }
+        .form-control {
+            display: inline-block;
+            width: 60%;
+        }
+        .btn-ensure {
+            margin-left: 145px;
+        }
+        .btn-cancel {
+            margin-left: 20px;
+        }
+        #attackRangeSel {
+            width: 60%;
+            height: 25px;
+        }
+    </style>
+    <script>
+        function add(d) {
+            var n = $('#phoneSpan').children().length;
+            if (n >= 5){
+                layer.alert("最多添加5个！")
+                return;
+            }
+            var jqSp = $(d.parentElement.parentElement); // 获取当前元素的父级元素 即li元素
+            //console.log(jqSp);
+            var html = '<li><lable>英雄手机：</lable> <input type="text" name="heroPNum" class="form-control" placeholder="请输入英雄名称">'+
+            '<button onclick="add(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'+
+            '<button onclick="del(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></li>';
+            jqSp.append(html);
+            }
+
+            function del(d) {
+                var n = $('#phoneSpan').children().length;
+                if (n <= 1){
+                    layer.alert("不能再减了，再减没了！")
+                    return;
+                }
+                var jqLi = $(d.parentElement);
+                //console.log(jqLi);
+                jqLi.remove();
+            }
+    </script>
+
+    <!-- 添加弹出页内容 -->
+    <div class="container">
+
+        <ul class="addHeroLi">
+            <form id="myform" action="#" method="POST">
+            <li><lable>英雄名称：</lable> <input name="heroName" type="text" class="form-control" placeholder="请输入英雄名称"></li>
+            <span id="phoneSpan">
+                <li>
+                    <lable>英雄手机：</lable> <input name="heroPNum" type="text" class="form-control" placeholder="请输入英雄名称">
+                    <button onclick="add(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    <button onclick="del(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                </li>
+            </span>
+            <li>
+                <lable>攻击距离：</lable> 
+                <select id="attackRangeSel" class="js-example-theme-multiple">
+                    <option value="125">125</option>
+                    <option value="225">225</option>
+                    <option value="325">325</option>
+                    <option value="425">425</option>
+                    <option value="525">525</option>
+                </select>
+                
+            </li>
+            <li><lable>英雄位置：</lable> <input name="heroPos" type="checkbox" value="top" checked="checked">上单 <input name="heroPos" value="mid" type="checkbox">中单 <input name="heroPos" value="jungle" type="checkbox">打野 <input name="heroPos" value="adc" type="checkbox">ADC <input name="heroPos" value="sup" type="checkbox">辅助</li>
+            <li><lable>英雄类型：</lable> <input name="heroType" value="ap" type="radio">AP <input name="heroType" value="ad" type="radio">AD <input name="heroType" value="tank" type="radio">TANK</li>
+            <li>
+                <button id="ensure" class="btn btn-info btn-ensure">确认</button>
+                <button id="cancel" class="btn btn-info btn-cancel">关闭</button>
+            </li>
+            </form>
+        </ul>
+        
+        
+    </div>
+
+    <!-- 添加页面 js -->
+    <script>
+        
+        $(function(){
+            /**
+             * select2 插件
+             * 
+             */
+            $('#attackRangeSel').select2({
+                theme: "classic"
+            });
+
+            //点击确定验证电话
+            $('#ensure').click(function(){
+
+                //console.log(window.parent.closeLayer());
+                //parent.layer.closeAll();
+
+                var heroName = $('input[name="heroName"]').val();
+                //var heroPNum = $('input[name="heroPNum"]').val();
+                //var attackRange = $('#attackRangeSel').val();
+                //var heroPos = $('input[name="heroPos"]').val();
+                //var heroType = $('input[name="heroType"]').val();
+                //console.log(heroName);
+                //console.log(heroPNum);
+                //console.log(attackRange);
+                //console.log(heroPos);
+                //console.log(heroType);
+                var iptArr = $('#phoneSpan li input');
+                console.log(iptArr);
+                var phoneNums = [];
+                iptArr.each(function(){
+                    phoneNums.push($(this).val());
+                });
+                console.log(phoneNums);
+                var pattern = /^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/;
+                var failedPos = [];
+                for(var idx in phoneNums) {
+                    if (pattern.test(phoneNums[idx])) {
+                        continue;
+                    } else {
+                        failedPos.push(parseInt(idx)+1);
+                    }
+                }
+                if (failedPos.length >0 ){
+                    var msg = "验证手机号失败！第"
+                    for(var i in failedPos){
+                        if(i!=0){
+                            msg+=','
+                        }
+                        msg += failedPos[i];
+                        
+                    }
+                    msg+="各电话输入内容验证未通过！"
+                    layer.alert(msg);
+                } else {
+                    layer.alert("验证通过");
+                    var param = $('#myform').serialize();
+                    console.log(param);
+                    //$('#myform').submit();
+                    parent.layer.closeAll();
+                }
+
+            });
+
+            $('#cancel').click(function(){
+                parent.layer.closeAll();
+            });
+        });
+     
+    </script>
+</body>
+</html>

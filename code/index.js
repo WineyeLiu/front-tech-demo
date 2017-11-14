@@ -1,9 +1,13 @@
+var index;
+
 $(function(){
     /**
      * 渲染表格
      */
     $('#heroTable').DataTable({
-        //dom: '<"float_left"f>r<"float_right"l>tip',  
+        //dom: '<"float_left"f>r<"float_right"l>tip', 
+
+        // 设置为中文 （默认为英文）
         language: {  
             'emptyTable': '没有数据',  
             'loadingRecords': '加载中...',  
@@ -21,10 +25,12 @@ $(function(){
             'infoEmpty': '没有数据',  
             'infoFiltered': '(过滤总件数 _MAX_ 条)'  
         },
+        // 请求数据
         ajax: {
             url: 'data/tableData.json',
             dataSrc:''
         },
+        // 默认排序
         order: [[4,'desc']],
         columnDefs: [
             {
@@ -57,36 +63,46 @@ $(function(){
      * 
      */
     $('#addHero').bind('click', function(){
-        var html = '<ul class="addHeroUl"><li><lable>英雄名称：</lable> <input type="text" class="form-control" placeholder="请输入英雄名称"></li>'+
+
+        //使用url引用页面的方式更优
+
+        /*var html = '<ul class="addHeroUl"><li><lable>英雄名称：</lable> <input type="text" class="form-control" placeholder="请输入英雄名称"></li>'+
         '<span><li><lable>英雄手机：</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">'+
         '<button onclick="add(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'+
         '<button onclick="del(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></li></span>'+
-        '<li><lable>攻击距离：</lable> <input type="text" class="form-control" placeholder="请输入英雄名称"></li>'+
+        '<li><lable>攻击距离：</lable> <select class="js-example-basic-multiple" multiple="multiple">'+
+            '<option value="125">125</option><option value="300">300</option><option value="450">450</option><option value="525">525</option><option value="575">575</option>'+
+        '</select></li>'+
         '<li><lable>英雄位置：</lable> <input type="checkbox">上单 <input type="checkbox">中单 <input type="checkbox">打野 <input type="checkbox">ADC <input type="checkbox">辅助</li>'+
-        '<li><lable>英雄类型：</lable> <input name="heroType" type="radio">AP <input name="heroType" type="radio">AD <input name="heroType" type="radio">TANK</li></ul>';
-        var index= layer.open({
-            type: 1,
+        '<li><lable>英雄类型：</lable> <input name="heroType" type="radio">AP <input name="heroType" type="radio">AD <input name="heroType" type="radio">TANK</li>'+
+        '<li><button class="btn btn-info btn-ensure">确认</button><button class="btn btn-info btn-cancel">关闭</button></li></ul>';*/
+        /*var html = '';
+        $.ajax({
+            type:'post',
+            url: 'addHero.html',
+            async:false,
+            success: function(data) {
+                html = data;
+            }
+        })*/
+
+        index = layer.open({
+            type: 2,
             title: '添加英雄',
             area: ['650px', '600px'],
-            content: html
+            content: 'addHero.html',
+            //btn:['确认','取消'],
+            success: function (layero, index) {
+                
+            }
+            
         });
+
     });
 
 });
 
 
-function add(d) {
-    var jqSp = $(d.parentElement.parentElement); // 获取当前元素的父级元素 即li元素
-    console.log(jqSp);
-    var html = '<li><lable>英雄手机：</lable> <input type="text" class="form-control" placeholder="请输入英雄名称">'+
-    '<button onclick="add(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'+
-    '<button onclick="del(this)" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></li>';
-    jqSp.append(html);
-
-}
-
-function del(d) {
-    var jqLi = $(d.parentElement);
-    console.log(jqLi);
-    jqLi.remove();
+function closeLayer() {
+    layer.close(index);
 }
