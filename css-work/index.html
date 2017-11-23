@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h1 {
+            text-shadow: 5px 5px 5px magenta;
+            width: 200px;
+            height: 60px;
+            border: 1px solid magenta;
+            padding: 17px 20px 10px 63px;
+            margin-bottom: 0px;
+            /*border-bottom: 0px solid magenta;*/
+        }
+        span:hover #select{
+            /*display: block;*/
+            visibility: visible;
+        }
+        #select {
+            width: 283px;
+            /*display: none;*/
+            visibility: hidden;
+            border: 1px solid magenta;
+            /*border-top: 0px solid magenta;*/
+            margin-top: 0px;
+            
+        }
+
+        #circle {
+            border-radius: 100px;
+            border-color: darkgreen magenta yellowgreen skyblue;
+            border-width: 100px;
+            border-style: solid;
+            width: 0px;
+            transition: all 4s ease-in-out;
+
+        }
+        #circle:hover {
+            transform: rotate(1440deg);
+        }
+    
+    </style>
+    <span>
+        <h1>下拉菜单</h1>
+        <div id="select">
+            <p>haha!</p>
+            <p>yeah!</p>
+            <p>biubiu!</p>
+        </div>
+    </span>
+    <div id="circle"></div>
+</body>
+</html>
